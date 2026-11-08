@@ -1,0 +1,188 @@
+<!-- Search Modal Component -->
+<!-- Hidden by default, activated via JavaScript (typically triggered by a search icon in the navbar or a keyboard shortcut like Cmd+K / Ctrl+K) -->
+<div id="searchModal" class="search-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="searchModalTitle" style="display: none;">
+    <div class="search-modal-content">
+        
+        <!-- Header & Input Area -->
+        <div class="search-modal-header">
+            <span class="search-modal-icon">🔍</span>
+            <input 
+                type="text" 
+                id="modalSearchInput" 
+                class="search-modal-input" 
+                placeholder="Search 100+ tools (e.g. JSON to CSV, Base64, Compound Interest)..." 
+                autocomplete="off"
+            >
+            <button class="search-modal-close" id="searchModalClose" aria-label="Close search">✕</button>
+        </div>
+
+        <!-- Search Results Container -->
+        <div class="search-modal-body">
+            <div id="searchModalResults" class="search-modal-results">
+                <!-- Results will be injected here via JavaScript -->
+                <div class="search-modal-empty-state">
+                    <p style="margin: 0; color: #64748b; font-size: 14px;">Type to start searching across all developer tools, calculators, and converters...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer / Keyboard Shortcuts -->
+        <div class="search-modal-footer">
+            <span style="display: flex; align-items: center; gap: 4px;">
+                Navigate with <kbd style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 4px; padding: 2px 6px; font-size: 11px; color: #475569;">↑</kbd> <kbd style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 4px; padding: 2px 6px; font-size: 11px; color: #475569;">↓</kbd>
+            </span>
+            <span style="display: flex; align-items: center; gap: 4px;">
+                Select with <kbd style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 4px; padding: 2px 6px; font-size: 11px; color: #475569;">Enter</kbd>
+            </span>
+            <span style="display: flex; align-items: center; gap: 4px;">
+                Close with <kbd style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 4px; padding: 2px 6px; font-size: 11px; color: #475569;">Esc</kbd>
+            </span>
+        </div>
+    </div>
+
+    <!-- Required CSS scoped for the modal -->
+    <style>
+        .search-modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 10vh;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .search-modal-content {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 640px;
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            margin: 0 16px;
+        }
+
+        .search-modal-header {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 1px solid #e2e8f0;
+            background-color: #ffffff;
+        }
+
+        .search-modal-icon {
+            color: #64748b;
+            font-size: 18px;
+            margin-right: 12px;
+        }
+
+        .search-modal-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 18px;
+            color: #0f172a;
+            background: transparent;
+            padding: 4px 0;
+        }
+        .search-modal-input::placeholder {
+            color: #94a3b8;
+        }
+
+        .search-modal-close {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+        }
+        .search-modal-close:hover {
+            color: #0f172a;
+            background-color: #f1f5f9;
+        }
+
+        .search-modal-body {
+            max-height: 400px;
+            overflow-y: auto;
+            background-color: #f8fafc;
+            padding: 12px 0;
+        }
+
+        .search-modal-empty-state {
+            padding: 32px 20px;
+            text-align: center;
+        }
+
+        /* Generated Result Item Styles */
+        .search-result-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-left: 3px solid transparent;
+            transition: all 0.1s;
+        }
+        .search-result-item:hover, .search-result-item.active {
+            background-color: #ffffff;
+            border-left-color: #2563eb;
+        }
+        .search-result-icon {
+            width: 32px;
+            height: 32px;
+            background-color: #eff6ff;
+            color: #2563eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            margin-right: 16px;
+            font-size: 14px;
+        }
+        .search-result-text {
+            display: flex;
+            flex-direction: column;
+        }
+        .search-result-title {
+            color: #0f172a;
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+        .search-result-category {
+            color: #64748b;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .search-modal-footer {
+            padding: 12px 20px;
+            border-top: 1px solid #e2e8f0;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        @media (max-width: 640px) {
+            .search-modal-backdrop {
+                padding-top: 16px;
+            }
+            .search-modal-footer {
+                display: none; /* Hide complex keyboard hints on mobile */
+            }
+        }
+    </style>
+</div>
