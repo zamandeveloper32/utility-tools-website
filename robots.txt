@@ -1,0 +1,43 @@
+# ==============================================================================
+# robots.txt for Utility Tools & Calculators Platform
+# Purpose: Direct search engine crawlers and optimize crawl budget for US SERPs
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Global Crawler Rules (Googlebot, Bingbot, DuckDuckBot, etc.)
+# ------------------------------------------------------------------------------
+User-agent: *
+
+# Allow full crawling of core tool pages, categories, and resources
+Allow: /
+Allow: /tools/
+Allow: /blog/
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/icons/
+
+# Disallow internal modular fragments and raw structural templates
+Disallow: /components/
+Disallow: /data/
+
+# Disallow internal search query URLs to preserve crawl budget
+Disallow: /*?q=
+Disallow: /*?search=
+Disallow: /*?filter=
+
+# ------------------------------------------------------------------------------
+# 2. Google AdSense Verification & Crawling
+# Ensure Mediapartners-Google and Google-AdSense-Bot have unfettered access
+# to all pages and assets for rapid ad compliance review
+# ------------------------------------------------------------------------------
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: Google-AdSense-Bot
+Allow: /
+
+# ------------------------------------------------------------------------------
+# 3. XML Sitemap Location
+# Replace "https://yourdomain.com" with your actual production domain
+# ------------------------------------------------------------------------------
+Sitemap: https://yourdomain.com/sitemap.xml
