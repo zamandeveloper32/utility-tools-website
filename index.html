@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags (US Market Focus) -->
+  <title>[YOUR_WEBSITE_NAME] — Free Online Calculators, Converters & Tools</title>
+  <meta name="title" content="[YOUR_WEBSITE_NAME] — Free Online Calculators, Converters & Tools">
+  <meta name="description" content="Free online calculators, unit converters, and developer utilities. Fast, client-side tools for finance, math, fitness, coding, and text formatting with no registration.">
+  <meta name="keywords" content="free online calculators, online tools us, unit converter, json to csv, compound interest calculator, bmi calculator, base64 decoder">
+  <link rel="canonical" href="https://yourdomain.com/">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/">
+  <meta property="og:title" content="[YOUR_WEBSITE_NAME] — Free Online Calculators, Converters & Tools">
+  <meta property="og:description" content="Fast, accurate online tools and calculators for everyday calculations, conversions, and developer tasks.">
+  
+  <!-- Structured Data Schema (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "[YOUR_WEBSITE_NAME]",
+    "url": "https://yourdomain.com/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://yourdomain.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <style>
+    /* Reset & Base System Typography */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    :root {
+      --bg-body: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-header: #ffffff;
+      --border-color: #e2e8f0;
+      --border-color-dark: #cbd5e1;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-subtle: #64748b;
+      --primary-blue: #1d4ed8;
+      --primary-hover: #1e40af;
+      --category-badge: #f1f5f9;
+      --ad-bg: #f8fafc;
+      --radius: 6px;
+      --container-width: 1200px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.5;
+      font-size: 15px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--primary-blue);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-width);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    /* Header & Navigation Bar */
+    header {
+      background-color: var(--bg-header);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+    .brand:hover {
+      text-decoration: none;
+    }
+
+    .brand-logo-box {
+      width: 32px;
+      height: 32px;
+      background-color: #0f172a;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 14px;
+      padding: 6px 4px;
+    }
+    .nav-links a:hover {
+      color: var(--primary-blue);
+      text-decoration: none;
+    }
+
+    .nav-blog-pill {
+      background-color: #eff6ff;
+      color: var(--primary-blue) !important;
+      padding: 4px 10px !important;
+      border-radius: 4px;
+      border: 1px solid #bfdbfe;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 8px 10px;
+      font-size: 14px;
+      cursor: pointer;
+      color: var(--text-main);
+    }
+
+    .mobile-nav-panel {
+      display: none;
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 16px;
+    }
+    .mobile-nav-panel.open {
+      display: block;
+    }
+    .mobile-nav-panel a {
+      display: block;
+      padding: 8px 0;
+      color: var(--text-muted);
+      font-size: 14px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .mobile-nav-panel a:last-child {
+      border-bottom: none;
+    }
+
+    /* Hero & Quick Search Section */
+    .hero-section {
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      padding: 36px 0 28px 0;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 20px auto;
+    }
+
+    .search-box-wrapper {
+      max-width: 580px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 12px 16px 12px 42px;
+      font-size: 15px;
+      border: 1px solid var(--border-color-dark);
+      border-radius: var(--radius);
+      background-color: #ffffff;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .search-input:focus {
+      border-color: var(--primary-blue);
+      box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.12);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-subtle);
+      font-size: 14px;
+      pointer-events: none;
+    }
+
+    .search-feedback {
+      font-size: 13px;
+      color: var(--text-subtle);
+      margin-top: 6px;
+      text-align: left;
+      min-height: 18px;
+    }
+
+    /* AdSense Unit Containers */
+    .ad-container {
+      width: 100%;
+      background-color: var(--ad-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 12px;
+      margin: 28px 0;
+      text-align: center;
+      min-height: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ad-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-subtle);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .ad-content {
+      font-size: 13px;
+      color: #94a3b8;
+    }
+
+    /* Categories Directory Section */
+    .tools-directory {
+      margin-top: 10px;
+      margin-bottom: 40px;
+    }
+
+    .directory-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .category-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+
+    .category-icon {
+      font-size: 18px;
+    }
+
+    .category-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .tool-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .tool-item {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .tool-link {
+      font-size: 14px;
+      color: var(--primary-blue);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .tool-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Editorial About / AdSense Context Section */
+    .editorial-section {
+      background-color: var(--bg-surface);
+      border-top: 1px solid var(--border-color);
+      padding: 40px 0;
+      margin-top: auto;
+    }
+
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 36px;
+    }
+
+    .editorial-content h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 10px;
+    }
+
+    .editorial-content p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .features-list {
+      list-style: square;
+      padding-left: 18px;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .features-list li {
+      margin-bottom: 6px;
+    }
+
+    .editorial-sidebar {
+      border-left: 1px solid var(--border-color);
+      padding-left: 24px;
+    }
+
+    .sidebar-block {
+      margin-bottom: 24px;
+    }
+
+    .sidebar-title {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .sidebar-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #ffffff;
+      border-top: 1px solid var(--border-color);
+      padding: 24px 0;
+      font-size: 13px;
+      color: var(--text-subtle);
+    }
+
+    .footer-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+    }
+    .footer-links a:hover {
+      color: var(--primary-blue);
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 992px) {
+      .directory-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .editorial-grid {
+        grid-template-columns: 1fr;
+      }
+      .editorial-sidebar {
+        border-left: none;
+        border-top: 1px solid var(--border-color);
+        padding-left: 0;
+        padding-top: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .directory-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .hero-title {
+        font-size: 22px;
+      }
+      .hero-subtitle {
+        font-size: 14px;
+      }
+      .footer-flex {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==================== MAIN NAVIGATION BAR ==================== -->
+  <header>
+    <div class="container navbar">
+      <!-- Site Logo / Branding -->
+      <a href="/" class="brand" title="[YOUR_WEBSITE_NAME] Home">
+        <div class="brand-logo-box">[L]</div>
+        <span>[YOUR_WEBSITE_NAME]</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#developer">Developer</a></li>
+          <li><a href="#finance">Finance</a></li>
+          <li><a href="#health">Fitness</a></li>
+          <li><a href="#text-seo">Text & SEO</a></li>
+          <li><a href="#math">Math</a></li>
+          <li><a href="/blog/" class="nav-blog-pill">Blog</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Trigger -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open Navigation Menu">Menu ☰</button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-panel" id="mobileNavPanel">
+      <a href="#developer">Developer Tools</a>
+      <a href="#finance">Financial Calculators</a>
+      <a href="#health">Health & Fitness</a>
+      <a href="#text-seo">Text & SEO Utilities</a>
+      <a href="#math">Math & Education</a>
+      <a href="/blog/" style="color: var(--primary-blue); font-weight: 600;">Blog Articles</a>
+      <a href="/about.html">About Us</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms & Conditions</a>
+      <a href="/contact.html">Contact Us</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== HERO SEARCH SECTION ==================== -->
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="hero-title">Free Online Calculators, Converters & Tools</h1>
+        <p class="hero-subtitle">Fast, accurate, and completely free web utilities. No installation, accounts, or payments required.</p>
+        
+        <div class="search-box-wrapper">
+          <span class="search-icon">🔍</span>
+          <input 
+            type="search" 
+            id="searchInput" 
+            class="search-input" 
+            placeholder="Search tools by name or keyword (e.g. JSON to CSV, Compound Interest, Base64)..." 
+            autocomplete="off"
+            aria-label="Search tools"
+          >
+          <div class="search-feedback" id="searchFeedback"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ADSENSE SLAT: TOP ==================== -->
+    <div class="container">
+      <div class="ad-container" style="margin-top: 24px; margin-bottom: 24px;">
+        <span class="ad-label">Advertisement</span>
+        <!-- ADSENSE_SLOT_TOP -->
+        <div class="ad-content">Responsive Header Ad (Display 728x90 / Auto Banner)</div>
+      </div>
+    </div>
+
+    <!-- ==================== MAIN TOOLS DIRECTORY (9 CATEGORIES) ==================== -->
+    <section class="tools-directory">
+      <div class="container">
+        <div class="directory-grid" id="directoryGrid">
+
+          <!-- Category 1: Developer Utilities -->
+          <div class="category-card" id="developer" data-category="developer">
+            <div class="category-header">
+              <span class="category-icon">💻</span>
+              <h2 class="category-title">Developer Utilities</h2>
+            </div>
+            <ul class="tool-list">
+              <li class="tool-item">
+                <a href="/tools/developer/json-to-csv.html" class="tool-link" data-keywords="free online json to csv converter parse convert format">JSON to CSV Converter</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/developer/base64-encoder-decoder.html" class="tool-link" data-keywords="base64 decode online tool encode decode binary text">Base64 Encoder / Decoder</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/developer/sql-query-formatter.html" class="tool-link" data-keywords="online sql formatter and beautifier format mysql query">SQL Query Formatter</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/developer/jwt-token-decoder.html" class="tool-link" data-keywords="decode jwt token online debugger parse bearer token">JWT Token Decoder</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/developer/md5-hash-generator.html" class="tool-link" data-keywords="generate md5 hash online checksum cryptographic string">MD5 Hash Generator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/developer/cron-expression-generator.html" class="tool-link" data-keywords="cron expression generator expression builder crontab schedule">Cron Expression Generator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/developer/uuid-v4-generator.html" class="tool-link" data-keywords="bulk uuid v4 generator online random unique identifier">UUID v4 Generator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/developer/html-to-markdown-converter.html" class="tool-link" data-keywords="convert html to markdown online markdown parser">HTML to Markdown Converter</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/developer/epoch-timestamp-converter.html" class="tool-link" data-keywords="epoch unix timestamp converter online date time seconds">Epoch Timestamp Converter</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/developer/regex-tester-debugger.html" class="tool-link" data-keywords="regular expression tester and debugger pattern matching">Regex Tester & Debugger</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/developer/css-minifier-beautifier.html" class="tool-link" data-keywords="css compressor and beautifier online minify stylesheets">CSS Minifier & Beautifier</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/developer/javascript-minifier.html" class="tool-link" data-keywords="minify js code online free compress javascript">JavaScript Minifier</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Category 2: Finance & Calculators -->
+          <div class="category-card" id="finance" data-category="finance">
+            <div class="category-header">
+              <span class="category-icon">📈</span>
+              <h2 class="category-title">Finance & Calculators</h2>
+            </div>
+            <ul class="tool-list">
+              <li class="tool-item">
+                <a href="/tools/finance/compound-interest-table-calculator.html" class="tool-link" data-keywords="compound interest calculator with monthly breakdown investment growth">Compound Interest Calculator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/finance/loan-amortization-schedule-calculator.html" class="tool-link" data-keywords="loan amortization calculator with extra payments mortgage schedule">Loan Amortization Calculator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/finance/salary-paycheck-take-home-calculator.html" class="tool-link" data-keywords="us hourly to annual salary paycheck calculator take home pay">Salary Paycheck Calculator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/finance/sales-tax-calculator-by-state.html" class="tool-link" data-keywords="us sales tax calculator by zip code state retail tax rate">Sales Tax by State Calculator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/finance/roi-profit-margin-calculator.html" class="tool-link" data-keywords="business roi and profit margin calculator return on investment">ROI & Profit Margin Calculator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/finance/hourly-wage-converter.html" class="tool-link" data-keywords="hourly wage to annual salary calculator full time hours">Hourly Wage Converter</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/finance/overtime-pay-calculator.html" class="tool-link" data-keywords="us overtime pay rate calculator time and a half hours">Overtime Pay Calculator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/finance/retirement-nest-egg-calculator.html" class="tool-link" data-keywords="401k retirement savings calculator pension investment projection">Retirement Savings Calculator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/finance/debt-payoff-snowball-calculator.html" class="tool-link" data-keywords="debt snowball vs avalanche calculator payoff acceleration">Debt Payoff Calculator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/finance/tip-splitter-bill-calculator.html" class="tool-link" data-keywords="restaurant tip splitter bill calculator divide party tab">Tip Splitter & Bill Calculator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/finance/crypto-profit-calculator.html" class="tool-link" data-keywords="crypto trading profit and loss calculator coin trade roi">Crypto Profit & Loss Calculator</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Category 3: Health & Fitness -->
+          <div class="category-card" id="health" data-category="health">
+            <div class="category-header">
+              <span class="category-icon">🏃</span>
+              <h2 class="category-title">Health & Fitness</h2>
+            </div>
+            <ul class="tool-list">
+              <li class="tool-item">
+                <a href="/tools/health/body-fat-percentage-calculator.html" class="tool-link" data-keywords="body fat calculator navy method us body composition">Body Fat Calculator (Navy)</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/health/bmr-tdee-calculator.html" class="tool-link" data-keywords="bmr and tdee calorie calculator basal metabolic rate">BMR & TDEE Calculator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/health/macro-calorie-calculator.html" class="tool-link" data-keywords="flexible dieting macro and calorie calculator protein carbs fats">Macro & Calorie Calculator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/health/bmi-calculator-for-adults.html" class="tool-link" data-keywords="us units bmi calculator height weight body mass index">BMI Calculator for Adults</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/health/water-intake-tracker-calculator.html" class="tool-link" data-keywords="daily water intake calculator ounces hydration goal">Water Intake Calculator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/health/one-rep-max-weight-calculator.html" class="tool-link" data-keywords="one rep max lifting calculator 1rm strength percentage">One Rep Max (1RM) Calculator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/health/target-heart-rate-calculator.html" class="tool-link" data-keywords="zone 2 heart rate training calculator cardio bpm">Target Heart Rate Calculator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/health/sleep-cycle-calculator.html" class="tool-link" data-keywords="wake up time sleep cycle calculator rem rest schedule">Sleep Cycle Calculator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/health/pace-calculator-for-runners.html" class="tool-link" data-keywords="running race pace time calculator 5k 10k marathon miles">Running Pace Calculator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/health/intermittent-fasting-timer.html" class="tool-link" data-keywords="intermittent fasting schedule tracker 16 8 fast window">Intermittent Fasting Calculator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/health/pregnancy-due-date-calculator.html" class="tool-link" data-keywords="pregnancy conception due date calculator lmp estimated delivery">Pregnancy Due Date Calculator</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Category 4: Text & SEO Utilities -->
+          <div class="category-card" id="text-seo" data-category="text-seo">
+            <div class="category-header">
+              <span class="category-icon">✍️</span>
+              <h2 class="category-title">Text & SEO Utilities</h2>
+            </div>
+            <ul class="tool-list">
+              <li class="tool-item">
+                <a href="/tools/text-seo/character-word-counter.html" class="tool-link" data-keywords="live character and word count tool paragraphs sentences letters">Character & Word Counter</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/text-seo/word-frequency-counter-density.html" class="tool-link" data-keywords="online keyword density checker SEO occurrence ratio percentage">Keyword Density Checker</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/text-seo/readability-score-calculator.html" class="tool-link" data-keywords="flesch kincaid readability score calculator grade reading ease">Readability Score Calculator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/text-seo/case-converter.html" class="tool-link" data-keywords="text case converter online tool uppercase lowercase title case">Case Converter</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/text-seo/online-diff-checker.html" class="tool-link" data-keywords="text file diff checker online compare differences side by side">Online Text Diff Checker</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/text-seo/string-slugify-tool.html" class="tool-link" data-keywords="url slug generator from text string permalink generator">URL Slugify Tool</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/text-seo/lorem-ipsum-placeholder-generator.html" class="tool-link" data-keywords="lorem ipsum dummy text generator filler paragraphs words">Lorem Ipsum Generator</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Category 5: Design & CSS Tools -->
+          <div class="category-card" id="design" data-category="design">
+            <div class="category-header">
+              <span class="category-icon">🎨</span>
+              <h2 class="category-title">Design & CSS Tools</h2>
+            </div>
+            <ul class="tool-list">
+              <li class="tool-item">
+                <a href="/tools/design/css-box-shadow-generator.html" class="tool-link" data-keywords="css box shadow generator code drop shadow inset visualizer">CSS Box Shadow Generator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/design/css-gradient-generator.html" class="tool-link" data-keywords="linear and radial css gradient generator color stops background">CSS Gradient Generator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/design/hex-to-rgba-converter.html" class="tool-link" data-keywords="hex to rgba color converter online alpha opacity hex values">HEX to RGBA Converter</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/design/color-palette-extractor.html" class="tool-link" data-keywords="extract color palette from image online dominant colors swatches">Color Palette Extractor</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/design/css-glassmorphism-generator.html" class="tool-link" data-keywords="tailwind glassmorphism generator online frosted blur backdrop">CSS Glassmorphism Maker</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/design/svg-to-react-component.html" class="tool-link" data-keywords="convert svg to react jsx component icon transform">SVG to React JSX Converter</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Category 6: Education & Academic -->
+          <div class="category-card" id="math" data-category="education">
+            <div class="category-header">
+              <span class="category-icon">📐</span>
+              <h2 class="category-title">Math & Academic</h2>
+            </div>
+            <ul class="tool-list">
+              <li class="tool-item">
+                <a href="/tools/education/percentage-increase-calculator.html" class="tool-link" data-keywords="calculate percentage increase online difference discount change">Percentage Increase Calculator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/education/gpa-scale-calculator.html" class="tool-link" data-keywords="college gpa calculator 4.0 scale high school weighted unweighted">College GPA Calculator (4.0)</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/education/fraction-to-decimal-converter.html" class="tool-link" data-keywords="fraction to decimal calculator with steps numerator denominator">Fraction to Decimal Converter</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/education/standard-deviation-calculator.html" class="tool-link" data-keywords="statistics standard deviation calculator sample population variance">Standard Deviation Calculator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/education/quadratic-equation-solver.html" class="tool-link" data-keywords="quadratic formula solver with steps algebra roots formula">Quadratic Equation Solver</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/education/scientific-notation-converter.html" class="tool-link" data-keywords="scientific notation converter calculator exponent power standard">Scientific Notation Converter</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/education/matrix-determinant-calculator.html" class="tool-link" data-keywords="3x3 matrix determinant solver online linear algebra">Matrix Determinant Solver</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Category 7: Security & Cryptography -->
+          <div class="category-card" id="security" data-category="security">
+            <div class="category-header">
+              <span class="category-icon">🛡️</span>
+              <h2 class="category-title">Security & Cryptography</h2>
+            </div>
+            <ul class="tool-list">
+              <li class="tool-item">
+                <a href="/tools/security/password-strength-entropy-checker.html" class="tool-link" data-keywords="secure password strength tester online entropy bits crack time">Password Strength Tester</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/security/ip-address-lookup-tool.html" class="tool-link" data-keywords="whats my ip address geo lookup location isp asn hostname">IP Address & Geo Lookup</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/security/ssl-certificate-checker.html" class="tool-link" data-keywords="online ssl certificate decoder checker tls expiration chain">SSL Certificate Checker</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/security/dns-propagation-checker.html" class="tool-link" data-keywords="global dns propagation checker tool a record mx cname nameserver">DNS Propagation Checker</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/security/hash-md5-sha256-checker.html" class="tool-link" data-keywords="verify file hash sha256 online checksum md5 integrity">SHA-256 / MD5 Checksum</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/security/robots-txt-validator.html" class="tool-link" data-keywords="validate robots txt file online crawler user-agent rules">Robots.txt Syntax Validator</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Category 8: Media & Conversion -->
+          <div class="category-card" id="media" data-category="media">
+            <div class="category-header">
+              <span class="category-icon">🎬</span>
+              <h2 class="category-title">Media & Conversion</h2>
+            </div>
+            <ul class="tool-list">
+              <li class="tool-item">
+                <a href="/tools/media/aspect-ratio-calculator.html" class="tool-link" data-keywords="video screen aspect ratio calculator 16 9 4 3 dimensions scale">Aspect Ratio Calculator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/media/image-resizer-cropper.html" class="tool-link" data-keywords="crop and resize image pixels online dimensions scale png jpg">Image Resizer & Cropper</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/media/png-to-webp-converter.html" class="tool-link" data-keywords="convert png to webp image online lossless modern web format">PNG to WebP Converter</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/media/heic-to-jpg-converter.html" class="tool-link" data-keywords="convert apple heic image to jpg online iphone photo conversion">HEIC to JPG Converter</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/media/favicon-generator-from-image.html" class="tool-link" data-keywords="ico and png favicon generator icon sizes web browsers">Favicon Generator</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Category 9: Marketing & Business -->
+          <div class="category-card" id="marketing" data-category="marketing">
+            <div class="category-header">
+              <span class="category-icon">📊</span>
+              <h2 class="category-title">Marketing & Business</h2>
+            </div>
+            <ul class="tool-list">
+              <li class="tool-item">
+                <a href="/tools/marketing/qr-code-generator-with-logo.html" class="tool-link" data-keywords="custom qr code generator with logo free vector barcode">QR Code Generator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/marketing/utm-campaign-link-builder.html" class="tool-link" data-keywords="utm tracking parameter link builder campaign source medium url">UTM Campaign Link Builder</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/marketing/invoice-generator-template.html" class="tool-link" data-keywords="free online invoice generator pdf download billing template">Invoice Generator (PDF)</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/marketing/meta-tag-generator-for-seo.html" class="tool-link" data-keywords="meta tags generator snippet preview title description google serps">SEO Meta Tag Generator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/marketing/sitemap-xml-generator.html" class="tool-link" data-keywords="generate xml sitemap online free crawl google index urls">XML Sitemap Generator</a>
+              </li>
+              <li class="tool-item">
+                <a href="/tools/marketing/email-signature-generator.html" class="tool-link" data-keywords="html email signature generator free professional template">HTML Email Signature Maker</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ADSENSE SLAT: BOTTOM ==================== -->
+    <div class="container">
+      <div class="ad-container" style="margin-top: 10px; margin-bottom: 36px;">
+        <span class="ad-label">Advertisement</span>
+        <!-- ADSENSE_SLOT_BOTTOM -->
+        <div class="ad-content">Responsive Footer Ad (Display 728x90 / Auto Banner)</div>
+      </div>
+    </div>
+
+    <!-- ==================== EDITORIAL SECTION (ADSENSE COMPLIANCE) ==================== -->
+    <section class="editorial-section">
+      <div class="container">
+        <div class="editorial-grid">
+          
+          <!-- Informational Core Copy (Prevents Thin-Content Flags) -->
+          <div class="editorial-content">
+            <h2>About [YOUR_WEBSITE_NAME]</h2>
+            <p>
+              [YOUR_WEBSITE_NAME] is a free web portal that provides reliable, client-side digital calculators, converters, and developer utilities. Whether you are balancing an amortization schedule, verifying a cryptographic checksum, generating a responsive CSS shadow, or converting structured JSON data into spreadsheets, our utilities execute algorithms quickly directly in your browser session.
+            </p>
+            <p>
+              Unlike conventional web apps that send your sensitive information to external database servers, our calculations and string manipulations run locally through modern JavaScript standards. This ensures instant performance, zero latency wait-times, and complete data confidentiality.
+            </p>
+
+            <ul class="features-list">
+              <li><strong>Zero User Registration:</strong> Access every calculator and formatter without sign-up forms, logins, or hidden paywalls.</li>
+              <li><strong>Client-Side Execution:</strong> Data and files processed in your browser remain on your device.</li>
+              <li><strong>Standardized Formulas:</strong> Computations adhere to verified financial formulas and official standards (such as the US Navy body composition model, IRS withholding schedules, and RFC cryptographic algorithms).</li>
+            </ul>
+          </div>
+
+          <!-- Quick Navigation / Transparency Column -->
+          <div class="editorial-sidebar">
+            <div class="sidebar-block">
+              <h3 class="sidebar-title">Recent Blog Guides</h3>
+              <ul class="sidebar-links">
+                <li><a href="/blog/how-to-calculate-compound-interest.html">Understanding Compound Interest Schedules</a></li>
+                <li><a href="/blog/flattening-json-arrays-into-csv.html">Guide to Converting Nested JSON to CSV</a></li>
+                <li><a href="/blog/understanding-us-navy-body-fat-formula.html">How the US Navy Body Fat Formula Works</a></li>
+                <li><a href="/blog/password-entropy-explained.html">Cryptographic Entropy & Password Security</a></li>
+              </ul>
+            </div>
+
+            <div class="sidebar-block">
+              <h3 class="sidebar-title">Platform Transparency</h3>
+              <ul class="sidebar-links">
+                <li><a href="/about.html">About Our Mission</a></li>
+                <li><a href="/privacy-policy.html">Privacy Policy & Cookies</a></li>
+                <li><a href="/terms.html">Terms of Service</a></li>
+                <li><a href="/contact.html">Report a Bug / Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== GLOBAL FOOTER ==================== -->
+  <footer>
+    <div class="container footer-flex">
+      <div>
+        <span>© 2026 [YOUR_WEBSITE_NAME]. All rights reserved.</span>
+      </div>
+
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="/terms.html">Terms & Conditions</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- ==================== PURE JAVASCRIPT LOGIC ==================== -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // 1. Mobile Menu Toggle
+      const mobileBtn = document.getElementById("mobileMenuBtn");
+      const mobilePanel = document.getElementById("mobileNavPanel");
+
+      if (mobileBtn && mobilePanel) {
+        mobileBtn.addEventListener("click", function () {
+          mobilePanel.classList.toggle("open");
+          mobileBtn.textContent = mobilePanel.classList.contains("open") ? "Close ✕" : "Menu ☰";
+        });
+      }
+
+      // 2. Real-Time Directory Search Filter
+      const searchInput = document.getElementById("searchInput");
+      const searchFeedback = document.getElementById("searchFeedback");
+      const categoryCards = document.querySelectorAll(".category-card");
+      const toolItems = document.querySelectorAll(".tool-item");
+
+      searchInput.addEventListener("input", function () {
+        const query = searchInput.value.toLowerCase().trim();
+        let matchedCount = 0;
+
+        if (query === "") {
+          // Reset all visibility
+          toolItems.forEach(item => item.style.display = "flex");
+          categoryCards.forEach(card => card.style.display = "flex");
+          searchFeedback.textContent = "";
+          return;
+        }
+
+        categoryCards.forEach(card => {
+          let hasVisibleTool = false;
+          const itemsInCard = card.querySelectorAll(".tool-item");
+
+          itemsInCard.forEach(item => {
+            const link = item.querySelector(".tool-link");
+            const toolName = link.textContent.toLowerCase();
+            const keywords = (link.getAttribute("data-keywords") || "").toLowerCase();
+
+            if (toolName.includes(query) || keywords.includes(query)) {
+              item.style.display = "flex";
+              hasVisibleTool = true;
+              matchedCount++;
+            } else {
+              item.style.display = "none";
+            }
+          });
+
+          // Hide categories that have zero matching tools
+          card.style.display = hasVisibleTool ? "flex" : "none";
+        });
+
+        searchFeedback.textContent = matchedCount > 0 
+          ? `Found ${matchedCount} tool${matchedCount === 1 ? "" : "s"} matching "${query}"`
+          : `No tools found matching "${query}". Try another search term.`;
+      });
+    });
+  </script>
+
+</body>
+</html>
